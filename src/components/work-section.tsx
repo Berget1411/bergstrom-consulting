@@ -7,42 +7,43 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const experiments = [
+const work = [
   {
-    title: "Project Lattice",
-    medium: "Interface Study",
+    title: "Lawline AI",
+    medium: "Legal Tech / AI",
     description:
-      "Structural framework for adaptive layouts in dynamic content systems.",
+      "Building AI-driven legal accessibility for 6.2M+ annual users.",
     span: "col-span-2 row-span-2",
   },
   {
-    title: "Signal Field",
-    medium: "Agent Orchestration",
-    description: "Autonomous coordination layer for multi-agent environments.",
+    title: "Andysolam",
+    medium: "Digital Commerce",
+    description: "Full-stack ecosystem for game server management and retail.",
     span: "col-span-1 row-span-1",
   },
   {
-    title: "Silent Agent",
-    medium: "Visual System",
-    description: "Non-intrusive interface patterns for ambient computing.",
+    title: "Veyla",
+    medium: "Product / AI",
+    description: "Automating estate inventory with guided AI workflows.",
     span: "col-span-1 row-span-2",
   },
   {
-    title: "Noir Grid",
-    medium: "Typography",
-    description: "High-contrast typographic system for editorial interfaces.",
+    title: "Tone",
+    medium: "Real-time AI",
+    description:
+      "AI Sales copilot with real-time feedback using transcription and LLMs.",
     span: "col-span-1 row-span-1",
   },
   {
-    title: "Echo Chamber",
-    medium: "Audio-Visual",
-    description: "Generative soundscapes mapped to interface interactions.",
+    title: "NoteCards",
+    medium: "Fullstack / AI",
+    description: "RAG-powered flashcard app with AI-powered workflows.",
     span: "col-span-2 row-span-1",
   },
   {
-    title: "Void Protocol",
-    medium: "Experimental",
-    description: "Negative space as primary interaction medium.",
+    title: "KTH AI Society",
+    medium: "Community / Web",
+    description: "Website for Sweden's largest student AI community.",
     span: "col-span-1 row-span-1",
   },
 ];
@@ -104,15 +105,14 @@ export function WorkSection() {
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-            02 / Experiments
+            02 / Case Studies
           </span>
           <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
             SELECTED WORK
           </h2>
         </div>
         <p className="hidden md:block max-w-xs font-mono text-xs text-muted-foreground text-right leading-relaxed">
-          Studies across interface design, agent systems, and visual
-          computation.
+          Working with everything from design, product, fullstack, and AI.
         </p>
       </div>
 
@@ -121,10 +121,10 @@ export function WorkSection() {
         ref={gridRef}
         className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
       >
-        {experiments.map((experiment, index) => (
+        {work.map((workItem, index) => (
           <WorkCard
-            key={`${index}-${experiment.title}`}
-            experiment={experiment}
+            key={`${index}-${workItem.title}`}
+            work={workItem}
             index={index}
             persistHover={index === 0}
           />
@@ -135,11 +135,11 @@ export function WorkSection() {
 }
 
 function WorkCard({
-  experiment,
+  work,
   index,
   persistHover = false,
 }: {
-  experiment: {
+  work: {
     title: string;
     medium: string;
     description: string;
@@ -173,7 +173,7 @@ function WorkCard({
       ref={cardRef}
       className={cn(
         "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden",
-        experiment.span,
+        work.span,
         isActive && "border-accent/60",
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -190,7 +190,7 @@ function WorkCard({
       {/* Content */}
       <div className="relative z-10">
         <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          {experiment.medium}
+          {work.medium}
         </span>
         <h3
           className={cn(
@@ -198,7 +198,7 @@ function WorkCard({
             isActive ? "text-accent" : "text-foreground",
           )}
         >
-          {experiment.title}
+          {work.title}
         </h3>
       </div>
 
@@ -210,7 +210,7 @@ function WorkCard({
             isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
-          {experiment.description}
+          {work.description}
         </p>
       </div>
 

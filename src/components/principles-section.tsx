@@ -16,41 +16,41 @@ export function PrinciplesSection() {
     {
       number: "01",
       titleParts: [
-        { text: "INTERFACE", highlight: true },
-        { text: " MINIMALISM", highlight: false },
+        { text: "STRATEGY &", highlight: true },
+        { text: " DESIGN", highlight: false },
       ],
       description:
-        "Reduce until only the essential remains. Every element earns its place.",
+        "From product discovery to high-fidelity prototypes. We define the solution before building it.",
       align: "left",
     },
     {
       number: "02",
       titleParts: [
-        { text: "SYSTEMS", highlight: true },
-        { text: " OVER SCREENS", highlight: false },
+        { text: "DEVELOP &", highlight: true },
+        { text: " DEPLOY", highlight: false },
       ],
       description:
-        "Design behaviors, not just layouts. Build logic that scales.",
+        "Modern fullstack development using TypeScript for maximum performance.",
       align: "right",
     },
     {
       number: "03",
       titleParts: [
-        { text: "CONTROLLED ", highlight: false },
-        { text: "TENSION", highlight: true },
+        { text: "AI-FIRST ", highlight: false },
+        { text: "SOLUTIONS", highlight: true },
       ],
       description:
-        "Balance between restraint and expression. Confidence without excess.",
+        "Integrating LLMs, RAG, and agentic workflows using tools like Mastra and Vercel AI SDK to automate complexity.",
       align: "left",
     },
     {
       number: "04",
       titleParts: [
-        { text: "SIGNAL ", highlight: false },
-        { text: "CLARITY", highlight: true },
+        { text: "SCALE & ", highlight: false },
+        { text: "MAINTAIN", highlight: true },
       ],
       description:
-        "Communication that cuts through noise. Precision in every interaction.",
+        "Continuous delivery and proactive optimization. Ensuring your systems grow as fast as your business.",
       align: "right",
     },
   ];

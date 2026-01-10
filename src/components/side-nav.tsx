@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { id: "hero", label: "Index" },
-  { id: "signals", label: "Signals" },
+  //{ id: "signals", label: "Signals" },
   { id: "work", label: "Experiments" },
   { id: "principles", label: "Principles" },
+  { id: "correspondence", label: "Correspondence" },
   { id: "colophon", label: "Colophon" },
 ];
 

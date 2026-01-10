@@ -76,7 +76,7 @@ export function ColophonSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          04 / Colophon
+          05 / Colophon
         </span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
           CREDITS
@@ -94,12 +94,8 @@ export function ColophonSection() {
             Design
           </h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">
-              Signal Studio
-            </li>
-            <li className="font-mono text-xs text-foreground/80">
-              Interface Lab
-            </li>
+            <li className="font-mono text-xs text-foreground/80">Figma</li>
+            <li className="font-mono text-xs text-foreground/80">Shadcn</li>
           </ul>
         </div>
 
@@ -109,11 +105,20 @@ export function ColophonSection() {
             Stack
           </h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Next.js</li>
             <li className="font-mono text-xs text-foreground/80">
-              Tailwind CSS
+              <a
+                href="https://www.better-t-stack.dev/new?name=test-deploy&fe-w=next&rt=workers&db=postgres&sd=wrangler&dbs=neon&pay=polar&ex=ai,todo&add=biome,husky,turborepo&wd=wrangler"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
+              >
+                Main Stack
+              </a>
             </li>
-            <li className="font-mono text-xs text-foreground/80">Vercel</li>
+            <li className="font-mono text-xs text-foreground/80">
+              Vercel AI SDK
+            </li>
+            <li className="font-mono text-xs text-foreground/80">Cursor</li>
           </ul>
         </div>
 
@@ -148,7 +153,7 @@ export function ColophonSection() {
           <ul className="space-y-2">
             <li>
               <a
-                href="mailto:hello@signal.studio"
+                href="mailto:ludvig.benjaminbergstrom@gmail.com"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
                 Email
@@ -156,12 +161,22 @@ export function ColophonSection() {
             </li>
             <li>
               <a
-                href="https://x.com/signalstudio"
+                href="https://www.linkedin.com/in/ludvig-bergstrom/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
-                Twitter/X
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/Berget1411"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
+              >
+                GitHub
               </a>
             </li>
           </ul>
@@ -173,7 +188,9 @@ export function ColophonSection() {
             Year
           </h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">2025</li>
+            <li className="font-mono text-xs text-foreground/80">
+              {new Date().getFullYear()}
+            </li>
             <li className="font-mono text-xs text-foreground/80">Ongoing</li>
           </ul>
         </div>
@@ -185,7 +202,8 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © 2025 Signal. All rights reserved.
+          © {new Date().getFullYear()} Bergstrom Consulting AB. All rights
+          reserved.
         </p>
         <p className="font-mono text-[10px] text-muted-foreground">
           Designed with intention. Built with precision.
