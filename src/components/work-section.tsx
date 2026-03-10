@@ -46,6 +46,20 @@ const work = [
     description: "Website for Sweden's largest student AI community.",
     span: "col-span-1 row-span-1",
   },
+  {
+    title: "Open Clock",
+    medium: "Fullstack / Open Source",
+    description:
+      "Open-source time tracking app with project management, billable hours, and analytics dashboard.",
+    span: "col-span-2 row-span-1",
+  },
+  {
+    title: "Open Learn",
+    medium: "Fullstack / Open Source",
+    description:
+      "Open-source learning platform with AI assistant, todo management, and subscription billing via Polar.sh.",
+    span: "col-span-2 row-span-1",
+  },
 ];
 
 export function WorkSection() {
