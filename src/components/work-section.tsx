@@ -60,6 +60,13 @@ const work = [
       "Open-source learning platform with AI assistant, todo management, and subscription billing via Polar.sh.",
     span: "col-span-2 row-span-1",
   },
+  {
+    title: "Karnborg.com",
+    medium: "Editorial / Web",
+    description:
+      "Author portfolio for Swedish writer Ulrika Karnborg — literary dark-first site showcasing books, reviews, and cultural work.",
+    span: "col-span-2 row-span-1",
+  },
 ];
 
 export function WorkSection() {
