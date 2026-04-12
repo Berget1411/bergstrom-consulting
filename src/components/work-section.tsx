@@ -47,7 +47,7 @@ const work = [
     span: "col-span-1 row-span-1",
   },
   {
-    title: "Open Clock",
+    title: "Better Clock",
     medium: "Fullstack / Open Source",
     description:
       "Open-source time tracking app with project management, billable hours, and analytics dashboard.",
