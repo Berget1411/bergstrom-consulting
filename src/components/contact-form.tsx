@@ -16,7 +16,7 @@ function FieldError({
   return (
     <>
       {showErrors && field.state.meta.errors.length > 0 ? (
-        <div className="mt-2 font-mono text-xs text-red-500">
+        <div className="mt-2 font-mono text-xs text-destructive">
           {field.state.meta.errors.join(", ")}
         </div>
       ) : null}
@@ -93,11 +93,11 @@ export function ContactForm() {
               value={field.state.value}
               onBlur={field.handleBlur}
               onChange={(e) => field.handleChange(e.target.value)}
-              className={`w-full bg-background/50 border-2 px-4 py-3 font-mono text-sm text-foreground 
+              className={`w-full bg-background/50 border px-4 py-3 font-mono text-sm text-foreground 
                     placeholder:text-muted-foreground/60 
                     focus:border-accent focus:bg-background/80 focus:outline-none 
                     transition-all duration-200
-                    ${showErrors && field.state.meta.errors.length > 0 ? "border-red-500" : "border-border/50 hover:border-border"}`}
+                    ${showErrors && field.state.meta.errors.length > 0 ? "border-destructive" : "border-border/50 hover:border-border"}`}
               placeholder="Your name"
             />
             <FieldError field={field} showErrors={showErrors} />
@@ -133,11 +133,11 @@ export function ContactForm() {
               value={field.state.value}
               onBlur={field.handleBlur}
               onChange={(e) => field.handleChange(e.target.value)}
-              className={`w-full bg-background/50 border-2 px-4 py-3 font-mono text-sm text-foreground 
+              className={`w-full bg-background/50 border px-4 py-3 font-mono text-sm text-foreground 
                     placeholder:text-muted-foreground/60 
                     focus:border-accent focus:bg-background/80 focus:outline-none 
                     transition-all duration-200
-                    ${showErrors && field.state.meta.errors.length > 0 ? "border-red-500" : "border-border/50 hover:border-border"}`}
+                    ${showErrors && field.state.meta.errors.length > 0 ? "border-destructive" : "border-border/50 hover:border-border"}`}
               placeholder="your@email.com"
             />
             <FieldError field={field} showErrors={showErrors} />
@@ -174,11 +174,11 @@ export function ContactForm() {
               onBlur={field.handleBlur}
               onChange={(e) => field.handleChange(e.target.value)}
               rows={6}
-              className={`w-full bg-background/50 border-2 px-4 py-3 font-mono text-sm text-foreground 
+              className={`w-full bg-background/50 border px-4 py-3 font-mono text-sm text-foreground 
                     placeholder:text-muted-foreground/60 
                     focus:border-accent focus:bg-background/80 focus:outline-none 
                     transition-all duration-200 resize-none
-                    ${showErrors && field.state.meta.errors.length > 0 ? "border-red-500" : "border-border/50 hover:border-border"}`}
+                    ${showErrors && field.state.meta.errors.length > 0 ? "border-destructive" : "border-border/50 hover:border-border"}`}
               placeholder="Tell us about your project..."
             />
             <FieldError field={field} showErrors={showErrors} />
@@ -192,7 +192,7 @@ export function ContactForm() {
           className={`border px-4 py-3 font-mono text-xs ${
             status.type === "success"
               ? "border-accent/30 text-accent bg-accent/5"
-              : "border-red-500/30 text-red-500 bg-red-500/5"
+              : "border-destructive/30 text-destructive bg-destructive/5"
           }`}
         >
           {status.message}

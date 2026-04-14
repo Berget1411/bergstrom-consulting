@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Bebas_Neue } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -21,8 +22,8 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Bergstrom Consulting",
-  description: "Bergstrom Consulting",
+  title: "Bergstrom Labs",
+  description: "Bergstrom Labs",
   generator: "bergstrom-consulting",
   icons: {
     icon: [
@@ -49,12 +50,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${ibmPlexSans.variable} ${bebasNeue.variable} ${ibmPlexMono.variable} font-sans antialiased overflow-x-hidden`}
       >
-        <div className="noise-overlay" aria-hidden="true" />
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <div className="noise-overlay" aria-hidden="true" />
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -237,8 +237,12 @@ function SplitFlapChar({
 
   const tileDelay = 0.15 * index;
 
-  const bgColor = isSettled ? "hsl(0, 0%, 0%)" : "rgba(249, 115, 22, 0.2)";
-  const textColor = isSettled ? "#ffffff" : "#f97316";
+  const bgColor = isSettled
+    ? "var(--primary-foreground)"
+    : "color-mix(in oklch, var(--accent), transparent 80%)";
+  const textColor = isSettled
+    ? "var(--foreground)"
+    : "var(--accent)";
 
   useEffect(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -287,7 +291,7 @@ function SplitFlapChar({
       <div
         style={{
           width: "0.3em",
-          fontSize: "clamp(4rem, 15vw, 14rem)",
+          fontSize: "clamp(2.5rem, 9.5vw, 14rem)",
         }}
       />
     );
@@ -300,7 +304,7 @@ function SplitFlapChar({
       transition={{ delay: tileDelay, duration: 0.3, ease: "easeOut" }}
       className="relative overflow-hidden flex items-center justify-center font-[family-name:var(--font-bebas)]"
       style={{
-        fontSize: "clamp(4rem, 15vw, 14rem)",
+        fontSize: "clamp(2.5rem, 9.5vw, 14rem)",
         width: "0.65em",
         height: "1.05em",
         backgroundColor: bgColor,
@@ -308,7 +312,7 @@ function SplitFlapChar({
         transition: "background-color 0.15s ease",
       }}
     >
-      <div className="absolute inset-x-0 top-1/2 h-[1px] bg-black/20 pointer-events-none z-10" />
+      <div className="absolute inset-x-0 top-1/2 h-[1px] bg-foreground/10 pointer-events-none z-10" />
 
       <div className="absolute inset-x-0 top-0 bottom-1/2 flex items-end justify-center overflow-hidden">
         <span

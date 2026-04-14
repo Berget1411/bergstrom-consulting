@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/contact-form";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function CorrespondanceSection() {
+export function CorrespondenceSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const formContainerRef = useRef<HTMLDivElement>(null);
@@ -59,14 +59,14 @@ export function CorrespondanceSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          04 / CORRESPONDENCE
+          03 / CORRESPONDENCE
         </span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
           GET IN TOUCH
         </h2>
         <p className="mt-6 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Have a project in mind? Let's discuss how we can work together to
-          build something exceptional.
+          Have a project in mind? Let's discuss how to build something
+          exceptional together.
         </p>
       </div>
 

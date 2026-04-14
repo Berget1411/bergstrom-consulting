@@ -134,11 +134,13 @@ export function DrawText({
           key={`${index}-${char}`}
           className="relative inline-block transition-colors duration-100"
           style={{
-            backgroundColor: activeIndices[index] ? "#f97316" : "transparent",
+            backgroundColor: activeIndices[index]
+              ? "var(--accent)"
+              : "transparent",
             color: activeIndices[index]
-              ? "#000000"
+              ? "var(--accent-foreground)"
               : flippingIndices[index]
-                ? "#f97316"
+                ? "var(--accent)"
                 : "transparent",
             padding: "0.08em 0.05em",
             marginRight: "0.06em",

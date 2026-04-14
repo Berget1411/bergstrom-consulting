@@ -49,13 +49,17 @@ export function HighlightText({
         },
       );
 
+      const styles = getComputedStyle(document.documentElement);
+      const fg = styles.getPropertyValue("--foreground").trim();
+      const accentFg = styles.getPropertyValue("--accent-foreground").trim();
+
       tl.fromTo(
         textRef.current,
         {
-          color: "rgb(250, 250, 250)", // foreground color
+          color: fg || "oklch(0.95 0 0)",
         },
         {
-          color: "#000000",
+          color: accentFg || "oklch(0.08 0 0)",
           duration: 0.6,
           ease: "power2.out",
         },

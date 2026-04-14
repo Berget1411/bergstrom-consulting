@@ -20,7 +20,7 @@ export function PrinciplesSection() {
         { text: " DESIGN", highlight: false },
       ],
       description:
-        "From product discovery to high-fidelity prototypes. We define the solution before building it.",
+        "From product discovery to high-fidelity prototypes. Defining the solution before building it.",
       align: "left",
     },
     {
@@ -103,7 +103,7 @@ export function PrinciplesSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-24">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          03 / Principles
+          02 / Principles
         </span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
           HOW WE WORK

@@ -4,7 +4,7 @@ import { WorkSection } from "@/components/work-section";
 import { PrinciplesSection } from "@/components/principles-section";
 import { ColophonSection } from "@/components/colophon-section";
 import { SideNav } from "@/components/side-nav";
-import { CorrespondanceSection } from "@/components/correspondance-section";
+import { CorrespondenceSection } from "@/components/correspondence-section";
 
 export function Home() {
   return (
@@ -17,7 +17,7 @@ export function Home() {
         {/* <SignalsSection /> */}
         <WorkSection />
         <PrinciplesSection />
-        <CorrespondanceSection />
+        <CorrespondenceSection />
         <ColophonSection />
       </div>
     </main>

@@ -3,6 +3,8 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Logo } from "@/components/logo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,7 +78,7 @@ export function ColophonSection() {
       {/* Section header */}
       <div ref={headerRef} className="mb-16">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          05 / Colophon
+          04 / Colophon
         </span>
         <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
           CREDITS
@@ -88,15 +90,9 @@ export function ColophonSection() {
         ref={gridRef}
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12"
       >
-        {/* Design */}
-        <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Design
-          </h4>
-          <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Figma</li>
-            <li className="font-mono text-xs text-foreground/80">Shadcn</li>
-          </ul>
+        {/* Logo */}
+        <div className="col-span-1 flex items-start">
+          <Logo className="h-16 w-auto md:h-20" />
         </div>
 
         {/* Stack */}
@@ -129,8 +125,8 @@ export function ColophonSection() {
           </h4>
           <ul className="space-y-2">
             <li className="font-mono text-xs text-foreground/80">Bebas Neue</li>
-            <li className="font-mono text-xs text-foreground/80">Inter</li>
-            <li className="font-mono text-xs text-foreground/80">Geist Mono</li>
+            <li className="font-mono text-xs text-foreground/80">IBM Plex Sans</li>
+            <li className="font-mono text-xs text-foreground/80">IBM Plex Mono</li>
           </ul>
         </div>
 
@@ -202,12 +198,16 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © {new Date().getFullYear()} Bergstrom Consulting AB. All rights
+          © {new Date().getFullYear()} Bergstrom Labs. All rights
           reserved.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground">
-          Designed with intention. Built with precision.
-        </p>
+        <div className="flex items-center gap-6">
+          <ThemeToggle />
+          <span className="h-3 w-[1px] bg-border" aria-hidden="true" />
+          <p className="font-mono text-[10px] text-muted-foreground">
+            Designed with intention. Built with precision.
+          </p>
+        </div>
       </div>
     </section>
   );

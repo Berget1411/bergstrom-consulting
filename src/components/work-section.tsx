@@ -9,42 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const work = [
   {
-    title: "Lawline AI",
+    title: "Lawline.se",
     medium: "Legal Tech / AI",
     description:
       "Building AI-driven legal accessibility for 6.2M+ annual users.",
     span: "col-span-2 row-span-2",
-  },
-  {
-    title: "Andysolam",
-    medium: "Digital Commerce",
-    description: "Full-stack ecosystem for game server management and retail.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "Veyla",
-    medium: "Product / AI",
-    description: "Automating estate inventory with guided AI workflows.",
-    span: "col-span-1 row-span-2",
-  },
-  {
-    title: "Tone",
-    medium: "Real-time AI",
-    description:
-      "AI Sales copilot with real-time feedback using transcription and LLMs.",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    title: "NoteCards",
-    medium: "Fullstack / AI",
-    description: "RAG-powered flashcard app with AI-powered workflows.",
-    span: "col-span-2 row-span-1",
+    url: "https://lawline.se",
   },
   {
     title: "KTH AI Society",
     medium: "Community / Web",
     description: "Website for Sweden's largest student AI community.",
-    span: "col-span-1 row-span-1",
+    span: "col-span-2 row-span-1",
+    url: "https://kthais.com",
   },
   {
     title: "Better Clock",
@@ -52,6 +29,7 @@ const work = [
     description:
       "Open-source time tracking app with project management, billable hours, and analytics dashboard.",
     span: "col-span-2 row-span-1",
+    url: "https://better-clock.bergstromlabs.com/",
   },
   {
     title: "Open Learn",
@@ -59,6 +37,7 @@ const work = [
     description:
       "Open-source learning platform with AI assistant, todo management, and subscription billing via Polar.sh.",
     span: "col-span-2 row-span-1",
+    url: "https://github.com/Berget1411/open-learn",
   },
   {
     title: "Karnborg.com",
@@ -66,6 +45,7 @@ const work = [
     description:
       "Author portfolio for Swedish writer Ulrika Karnborg — literary dark-first site showcasing books, reviews, and cultural work.",
     span: "col-span-2 row-span-1",
+    url: "https://karnborg.com",
   },
 ];
 
@@ -95,7 +75,7 @@ export function WorkSection() {
         },
       );
 
-      const cards = gridRef.current?.querySelectorAll("article");
+      const cards = gridRef.current?.querySelectorAll(".work-card");
       if (cards && cards.length > 0) {
         gsap.set(cards, { y: 60, opacity: 0 });
         gsap.to(cards, {
@@ -126,7 +106,7 @@ export function WorkSection() {
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-            02 / Case Studies
+            01 / Case Studies
           </span>
           <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
             SELECTED WORK
@@ -165,6 +145,7 @@ function WorkCard({
     medium: string;
     description: string;
     span: string;
+    url?: string;
   };
   index: number;
   persistHover?: boolean;
@@ -188,18 +169,17 @@ function WorkCard({
   }, [persistHover]);
 
   const isActive = isHovered || isScrollActive;
+  const hasUrl = !!work.url;
 
-  return (
-    <article
-      ref={cardRef}
-      className={cn(
-        "group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden",
-        work.span,
-        isActive && "border-accent/60",
-      )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+  const className = cn(
+    "work-card group relative border border-border/40 p-5 flex flex-col justify-between transition-all duration-500 overflow-hidden",
+    hasUrl && "cursor-pointer",
+    work.span,
+    isActive && "border-accent/60",
+  );
+
+  const cardContent = (
+    <>
       {/* Background layer */}
       <div
         className={cn(
@@ -245,16 +225,61 @@ function WorkCard({
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Corner line */}
-      <div
-        className={cn(
-          "absolute top-0 right-0 w-12 h-12 transition-all duration-500",
-          isActive ? "opacity-100" : "opacity-0",
-        )}
+      {/* External link indicator for cards with URL */}
+      {hasUrl && (
+        <span
+          className={cn(
+            "absolute top-4 right-4 font-mono text-[10px] text-accent transition-all duration-500",
+            isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-1",
+          )}
+          aria-hidden="true"
+        >
+          &rarr;
+        </span>
+      )}
+
+      {/* Corner line — only for cards without URL */}
+      {!hasUrl && (
+        <div
+          className={cn(
+            "absolute top-0 right-0 w-12 h-12 transition-all duration-500",
+            isActive ? "opacity-100" : "opacity-0",
+          )}
+        >
+          <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
+          <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
+        </div>
+      )}
+    </>
+  );
+
+  const sharedProps = {
+    onMouseEnter: () => setIsHovered(true),
+    onMouseLeave: () => setIsHovered(false),
+  };
+
+  if (hasUrl) {
+    return (
+      <a
+        ref={cardRef as React.RefObject<HTMLAnchorElement>}
+        href={work.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        {...sharedProps}
       >
-        <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
-        <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
-      </div>
+        {cardContent}
+      </a>
+    );
+  }
+
+  return (
+    <article
+      ref={cardRef as React.RefObject<HTMLElement>}
+      className={className}
+      {...sharedProps}
+    >
+      {cardContent}
     </article>
   );
 }
