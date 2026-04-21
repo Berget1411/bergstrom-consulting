@@ -47,6 +47,22 @@ const work = [
     span: "col-span-2 row-span-1",
     url: "https://karnborg.com",
   },
+  {
+    title: "DesignCN",
+    medium: "Fullstack / Design System",
+    description:
+      "Monorepo template with shadcn/ui components, Mastra MCP integration, and multi-app architecture.",
+    span: "col-span-2 row-span-1",
+    url: "https://designcn.bergstromlabs.com",
+  },
+  {
+    title: "Openbook",
+    medium: "Fullstack / Fintech",
+    description:
+      "AI-powered accounting platform for Swedish small businesses — automates financial entry through bank matching, receipt OCR, and intelligent categorization.",
+    span: "col-span-2 row-span-1",
+    url: "https://openbook.bergstromlabs.com",
+  },
 ];
 
 export function WorkSection() {
